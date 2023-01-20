@@ -1,4 +1,6 @@
 const mayusculas = /[A-Z\u00C0-\u017F]/gm;
+document.getElementById("copiarAlPortapapeles").style.display = "hidden";
+
 // funcion que encripta
 function f_encriptar(text) {
   if (text.match(mayusculas) != null) {
@@ -30,6 +32,7 @@ function f_encriptar(text) {
     var Text_out = NewText.join("");
     document.getElementById("text_in").value = "";
     document.getElementById("info-text").style.visibility = "hidden";
+    document.getElementById("copiarAlPortapapeles").style.visibility = "visible";
     return (document.getElementById("text_out").value = Text_out);
   }
 }
@@ -52,6 +55,8 @@ function f_desencriptar(text) {
       let u = o.replace(/ufat/gm, "u");
 
       document.getElementById("info-text").style.visibility = "hidden";
+      document.getElementById("copiarAlPortapapeles").style.visibility =
+        "visible";
       return (document.getElementById("text_out").value = u);
     }
   }
@@ -72,6 +77,7 @@ function copiarAlPortapapeles() {
 //funcion que reestablece todo por defecto
 function limpiar() {
   document.getElementById("info-text").style.visibility = "visible";
+  document.getElementById("copiarAlPortapapeles").style.visibility = "hidden";
   document.getElementById("text_in").value = "";
   document.getElementById("text_out").value = "";
 }
